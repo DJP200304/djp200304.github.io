@@ -9826,21 +9826,28 @@ nav form {
   padding: 8px;
 }
 
+.navbar-brand {
+  color: red;
+}
+
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
+  border-bottom: solid red;
 }
 
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
+  min-height: 70%;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
-  background-color: #6c757d;
+  background-color: darkgrey;
+  color: red;
 }
 
 .carousel-item > img {
@@ -9851,8 +9858,10 @@ nav form {
   height: 32rem;
 }
 
-#test {
-  min-height: 75%;
+.carousel-list {
+  list-style: none;
+  font-size: 1.25rem;
+  padding-left: 0%;
 }
 
 @media (min-width: 40em) {
@@ -9873,6 +9882,22 @@ nav form {
 }
 nav {
   border-bottom: solid lightgray;
+}
+
+input[type=checkbox] {
+  accent-color: red;
+}
+
+#phishing {
+  margin-top: 56px;
+}
+
+.featurette-image {
+  object-fit: contain;
+}
+
+.col-md-5 {
+  vertical-align: middle;
 }
 
 /*# sourceMappingURL=styles.css.map */
