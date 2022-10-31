@@ -9799,12 +9799,13 @@ textarea.form-control-lg {
 }
 
 .btn-outline-success {
-  color: red;
+  background-color: red;
   border-color: red;
+  color: white;
 }
 
 .btn-outline-success:hover {
-  background-color: red;
+  background-color: transparent;
   color: white;
   border-color: red;
 }
@@ -9874,4 +9875,4 @@ nav {
   border-bottom: solid lightgray;
 }
 
-/*# sourceMappingURL=styles2.css.map */
+/*# sourceMappingURL=styles.css.map */
