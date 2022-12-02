@@ -1,0 +1,270 @@
+.btn-primary {
+    color: #cc0000;
+    background-color: red;
+    border-color: #d90000;
+    color: white;
+  }
+  .btn-primary:hover {
+    color: #660000;
+    background-color: #ff1a1a;
+    border-color: #ff3333;
+  }
+  .btn-check:focus + .btn-primary, .btn-primary:focus {
+    color: #660000;
+    background-color: #ff1a1a;
+    border-color: #ff3333;
+    box-shadow: 0 0 0 0.25rem rgba(215, 0, 0, 0.5);
+  }
+  .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: red !important;
+    border-color: #dd1a1a !important;
+  }
+  .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba(215, 0, 0, 0.5) !important; 
+  }
+  .btn-primary:disabled, .btn-primary.disabled {
+    color: #000;
+    background-color: red;
+    border-color: #d90000;
+  }
+  
+  .btn-primary:hover,.btn-primary:focus, .btn-primary:active, .btn-primary:visited{
+    color: white;
+    background-color: transparent;
+    border-color: red;
+  }
+  
+  .btn-outline-success:active{
+    background-color: red !important;
+    box-shadow: 0 0 0 0.25rem rgba(215, 0, 0, 0.5) !important;
+    border-color: red !important;
+  
+  }
+  
+  #sign-up-button:hover{
+    color: white;
+  }
+  
+  .btn-outline-primary {
+    color: red;
+    border-color: red;
+  }
+  .btn-outline-primary:hover {
+    color: #222222;
+    background-color: #ff1a1a;
+    border-color: red;
+  }
+  .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.5);
+  }
+  .btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
+    color: #000;
+    background-color: #ff1a1a;
+    border-color: red;
+  }
+  .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.5);
+  }
+  .btn-outline-primary:disabled, .btn-outline-primary.disabled {
+    color: red;
+    background-color: transparent;
+  }
+  
+  .btn-outline-success {
+    background-color: red;
+    border-color: red;
+    color: white;
+  }
+  
+  .btn-outline-success:hover,.btn-outline-success:focus {
+    background-color: transparent;
+    color: white;
+    border-color: red;
+    box-shadow: 0 0 0 0.25rem rgba(215, 0, 0, 0.5) !important;
+  }
+  
+  body {
+    background-color: lightgrey;
+  }
+  
+  .featurette-divider {
+    border: solid red;
+  }
+  
+  nav form {
+    display: inline-flex;
+  }
+  
+  .navbar {
+    padding: 8px;
+  }
+  
+  .carousel {
+    margin-bottom: 4rem;
+    border-bottom: solid red;
+  }
+  
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+    min-height: 70%;
+  }
+  
+  .carousel-item {
+    height: 32rem;
+    background-color: darkgrey;
+    color: red;
+  }
+  
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+  
+  .carousel-list {
+    list-style: none;
+    font-size: 1.25rem;
+    padding-left: 0%;
+  }
+  
+  @media (min-width: 40em) {
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+  nav {
+    border-bottom: solid lightgray;
+  }
+  
+  input[type=checkbox] {
+    accent-color: red;
+    color: red;
+  }
+  
+  .form-check-input:checked {
+    background-color: red;
+    border-color: red;
+  }
+  
+  #phishing {
+    margin-top: 56px;
+  }
+  
+  .col-md-5 {
+    justify-content: center;
+  }
+  
+  #title:hover {
+    color: red !important;
+  }
+  .nav-item a:hover{
+    color: red !important;
+  }
+  
+  .card{
+    background-color: lightgrey;
+    transition: background-color 1s;
+  }
+  
+  .article-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3em;
+    border: 1px #444444;
+    margin-top: 5px;
+  }
+  
+  #load-more{
+    text-align: center;
+    margin-top: 5px;
+  }
+  #submit-button{
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  #tiny{
+    text-align: center;
+  }
+  #tiny p{
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  #big{
+    margin-top: 53px;
+    color: white;
+  }
+  
+  #categories p{
+    color: white;
+  }
+  
+  #filters h3{
+    color: white;
+  }
+  
+  .form-check-label{
+    color: white;
+  }
+  
+  .hr-light{
+    color: white
+  }
+  
+  #graph-svg{
+    width: 95%;
+  }
+  
+  #graph{
+    padding-left: 8px;
+  }
+  
+  #see-less-button{
+    margin: 8px;
+  }
+  
+  #load-more-button{
+    margin: 8px;
+  }
+  
+  .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  #gcse-title{
+    font-size: 75px;
+  }
+
+#navbar{
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+#offset{
+  height: 50px;
+}
