@@ -3,22 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    
+
+    
     <title>Cybersecurity | Protect Yourself</title>
 </head>
 <!--Adapted from Bootstrap 2022 Examples and Templates-->
 <!--All forms in this webpage are currently non-functional as this will be added later e.g. search bar and sign up form-->
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-dark bg-secondary">
-      <div class="container-fluid">
-        <a class="navbar-brand">Malware</a>
-        <form class="d-flex">
+  <nav class="navbar navbar-expand-lg bg-secondary" id = 'navbar'>
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" id = "title" href="#">Malware</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#gcse">GCSE Revision</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#filters-anchor">Articles & Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#hear-more">Sign Up</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" id = "search-button" type="submit">Search</button>
         </form>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <div id="offset"></div>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -28,13 +50,13 @@
           <div class="carousel-item active" data-bs-item="20000">
             <div class="carousel-caption">
               <h1>Welcome</h1>
-              <p>Malware can be a scary prospect when discovering the term for the first time; but no need to worry, this website will tell you everything you possibly need to know about different types of malware and how you can potentially protect yourself. So whether you're researching for GCSEs or just looking to discover malware, this is the place to be.
+              <p>Malware can be a scary prospect when discovering the term for the first time; but no need to worry, this website will tell you everything you possibly need to know about different types of malware and how you can potentially protect yourself. So whether you're researching for GCSEs, discovering the term malware for the first time or want to know the latest news, this is the place to be.
               </p>
             </div>
           </div>
           <div  class="carousel-item">
             <div class="carousel-caption">
-              <h1>We will Go Through:</h1>
+              <h1>GCSE Revision for:</h1>
               <ul class = "carousel-list">
                 <li>Trojans</li>
                 <li>Viruses</li>
@@ -57,14 +79,17 @@
         </button>
       </div>
       <!--Information adpated from BBC Bitesize 2022-->
-      <div class="container marketing">
+      <div class="container marketing" >
+        <a class="anchor" id="gcse"></a>
+        <h1 class="featurette-heading" id = "gcse-title">A Basic Overview of Common Malware</h1>
+        <hr class="featurette-divider">
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">Trojans<span class="text-muted"> Not a Horse.</span></h2>
             <p class="lead">Unlike viruses trojans cannot replicate themselves. Instead they are disguised as a harmless piece of software available to download, often for free. Then once installed it will have a similar impact to a virus. This can be avoided by ensuring downloads and email attachments are from legitimate and trusted sources, if unsure; research</p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="img/trojan.png" data-holder-rendered="true">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="images/trojan.png" data-holder-rendered="true">
           </div>
         </div>
 
@@ -76,7 +101,7 @@
             <p class="lead">Similar to viruses and a subset of trojans but they are not hidden inside other programs and don't require human activation, often spread through emails or through your local network. Again, being aware of the sources of your data goes along way towards avoiding this piece of malware</p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="img/worms.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/worms.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
           </div>
         </div>
 
@@ -88,7 +113,7 @@
             <p class="lead">Viruses work very much like the viruses you will know from the natural world; they hide inside other files and replicate themselves to become part of other programs, once activated by hand. They can cause damage by deleting or modifying files. The best defence against viruses is, believe it or not, anti-virus software, which checks programs on your computer against any known viruses for similarities. </p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="img/virus.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/virus.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
           </div>
         </div>
 
@@ -99,7 +124,7 @@
             <p class="lead">Adware causes pop-ups or windows that will not go away, hence making them the annoying sibling of the malware world. They make their way onto your computer much like many of the other malware.</p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="img/adware.png" data-holder-rendered="true">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="images/adware.png" data-holder-rendered="true">
           </div>
         </div>
 
@@ -111,7 +136,7 @@
             <p class="lead">ransomware hijacks the data of a system through encryption then demands a price for decryption. This is often targetted at larger companies so shouldn't be too much of a worry but again can be stopped through up to date anti-virus and a knowledge of phishing.</p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="img/ransom.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/ransom.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
           </div>
         </div>
 
@@ -123,7 +148,7 @@
             <p class="lead">Spyware does exactly what it says on the tin, watches your activity such as passwords entered, sites visited then feeds this information back to a perpetrator. This can be picked up by most anti-virus but there is specialist detection software also out there.</p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="img/spy.png" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/spy.png" data-holder-rendered="true" style="width: 500px; height: 500px;">
           </div>
         </div>
 
@@ -144,21 +169,93 @@
             </p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="img/phishing.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="images/phishing.jpeg" data-holder-rendered="true" style="width: 500px; height: 500px;">
           </div>
         </div>
-
+       
         <hr class="featurette-divider">
 
       </div>
-      <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+      <div class="container">
+        <form class = "p-4 p-md-5 border rounded-3 bg-secondary" id = "filters">
+          <a class="anchor" id="filters-anchor"></a>
+          <h3>Cyber Incidents 2005-2020</h3>
+          <hr class = "hr-light">
+          <div class="row">
+            <div class="col">
+              <div class = "form-group" id = "categories">
+                <div class="form-check">
+                  <p>Incident Category Filter:</p>
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox1" value="all">
+                  <label class="form-check-label" for="inlineCheckbox1">All</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox2" value="Espionage">
+                  <label class="form-check-label" for="inlineCheckbox2">Espionage</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox3" value="Sabotage">
+                  <label class="form-check-label" for="inlineCheckbox3">Sabotage</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox4" value="Financial Theft">
+                  <label class="form-check-label" for="inlineCheckbox4">Financial Theft</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox5" value="Denial of service">
+                  <label class="form-check-label" for="inlineCheckbox5">Denial of Service</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox6" value="Defacement">
+                  <label class="form-check-label" for="inlineCheckbox6">Defacement</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox7" value="Data destruction">
+                  <label class="form-check-label" for="inlineCheckbox7">Data Destruction</label>
+                </div>
+                <div class="form-check form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox8" value="Doxing">
+                  <label class="form-check-label" for="inlineCheckbox8">Doxing</label>
+                </div>
+                <div class="form-check form-check">
+                  <input class="form-check-input" type="checkbox" id="filterCheckbox9" value="Other">
+                  <label class="form-check-label" for="inlineCheckbox9">Other</label>
+                </div>
+              </div>
+            </div>
+            <div class="col" id = "big">
+              <div id = "tiny">
+                <p>Date Filter:</p>
+                <input type="date" class="form-control" id="start-date" value="2005-08-25" min="2005-08-25" max="2020-12-04">
+                <p>To</p>
+                <input type="date" class="form-control" id="end-date" value= "2020-12-05" min="2005-08-26" max="2020-12-05">
+              </div>
+            </div>
+            <div id ="submit-button">
+              <button type="button" class="w-50 btn btn-lg btn-primary" id="update" >Update</button> 
+            </div>
+          </div>
+        </form>
+        <div id = "removal-tool">
+          <ul class="article-list" id = "articledescriptions">
+          </ul>
+        </div>
+        <div id = "load-more">
+        </div>
+      </div>
+      <div id = "graph">
+        
+      </div>
+      
+      <hr class="featurette-divider">
+      <div class="container col-xl-10 col-xxl-8 px-4 py-5" id= "hear-more">
         <div class="row align-items-center g-lg-5 py-5">
           <div class="col-lg-7 text-center text-lg-start">
             <h1 class="display-4 fw-bold lh-1 mb-3">Sign up to our mailing list!</h1>
             <p class="col-lg-10 fs-4">We hope that this page helps you to understand the different ways you can be targetted by malware. If you would like to hear more about how to best protect yourself please sign up to our mailing list for weekly news and advice bulletins.</p>
           </div>
           <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-secondary">
+            <form class="p-4 p-md-5 border rounded-3 bg-secondary" id="sign-up-form">
               <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
@@ -169,24 +266,27 @@
               </div>
               <div class="form-group">
                 <label class= "text-white" for="exampleFormControlTextarea1">What you would like to hear more about?</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control"  rows="3"></textarea>
               </div>
               <div class="checkbox mb-3">
                 <label class="text-white">
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit" id = "sign-up-button">Sign up</button>
+              <small id="success-message"></small>
               <hr class="my-4 hr-danger">
               <small class="text-white">By clicking Sign up, you agree to the terms of use.</small>
             </form>
           </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 <!--Bootstrap (2022) Bootstrap · The most popular HTML, CSS, and JS library in the world. Available at: https://getbootstrap.com -->
 <!--BBC Bitesize (2022) GCSE Computer Science - BBC Bitesize. Available at: https://www.bbc.co.uk/bitesize/subjects/z34k7ty-->
