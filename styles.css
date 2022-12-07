@@ -268,3 +268,6 @@ a.anchor {
 #offset{
   height: 50px;
 }
+body{
+  scroll-behavior: auto !important;
+}

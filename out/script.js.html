@@ -72,6 +72,7 @@ search.addEventListener('click', (e) => {
   e.preventDefault()
   alert('This website isnt THAT good')
 })
+
 /**
  * Defines target number of articles that should be visible to the user.
  */
@@ -98,7 +99,7 @@ var selected_filters = []
 var filtered_data = []
 
 /**
- * Applies the inputted filters onto the cyber-operations-incidents.csv data set and calls generate_card() for each data item along with generate_navigation() and add_events_cards(). The local variable 'c' stores how many suitable cards have been generated for input as a parameter of generate_navigation()
+ * Applies the inputted filters onto the cyber-operations-incidents.csv data set (available at: https://www.kaggle.com/datasets/fireballbyedimyrnmom/cyber-incidents-up-to-2020) and calls generate_card() for each data item along with generate_navigation() and add_events_cards(). The local variable 'c' stores how many suitable cards have been generated for input as a parameter of generate_navigation()
  */
 function generate () {
   d3.csv('cyber-operations-incidents.csv').then(function (data) {
@@ -110,7 +111,7 @@ function generate () {
       if (selected_filters.includes(type) &amp;&amp; (new Date(data[articles_checked].Date).getTime() > start_date.getTime()) &amp;&amp; (new Date(data[articles_checked].Date).getTime() &lt; end_date.getTime())) {
         generate_card(data[articles_checked], articles_checked)
         c = c + 1
-      } else if (selected_filters.includes('Other') &amp;&amp; type === 0 &amp;&amp; (new Date(data[articles_checked].Date).getTime() > start_date.getTime()) &amp;&amp; (new Date(data[articles_checked].Date).getTime() &lt; end_date.getTime())) {
+      } else if (selected_filters.includes('Other') &amp;&amp; type === '' &amp;&amp; (new Date(data[articles_checked].Date).getTime() > start_date.getTime()) &amp;&amp; (new Date(data[articles_checked].Date).getTime() &lt; end_date.getTime())) {
         generate_card(data[articles_checked], articles_checked)
         c = c + 1
       }
@@ -123,6 +124,7 @@ function generate () {
     add_events_cards()
   })
 };
+
 /**
  * Removes the list of articles and replaces it with an empty one ready to be refilled by the generate() function, can also remove the graph (incl. heading and legend) ready to be replaced if graph_refresh is true. This is necessary to avoid duplication of DOM elements or potentially re-adding events to certain elements causing functionality to be lost.
  * @param {boolean} graph_refresh Refers to whether an update to the graph is necessary or not (i.e. whether the filters have changed)
@@ -131,7 +133,7 @@ function reset (graph_refresh) {
   list = document.getElementById('articledescriptions')
   list.remove()
   article_list = document.createElement('ul')
-  article_list.classList.add('product-list')
+  article_list.classList.add('article-list')
   article_list.id = 'articledescriptions'
   document.getElementById('removal-tool').appendChild(article_list)
   if (graph_refresh) {
@@ -151,7 +153,7 @@ function reset (graph_refresh) {
 }
 
 /**
- * Uses the numbers.csv data set in order to create an instance of a grouped bar chart (svg) including: a calculation to round the largest data value up to the nearest 10 in order to set a y axis limit and applying the most recent chosen filters to the data. Also uses this data to create a legend (svg), both components are then added into the 'graph' div along with the heading (h2).
+ * Uses the numbers.csv data set (adapted from cyber-operations-incidents.csv) in order to create an instance of a grouped bar chart (svg) including: a calculation to round the largest data value up to the nearest 10 in order to set a y axis limit and applying the most recent chosen filters to the data. Also uses this data to create a legend (svg), both components are then added into the 'graph' div along with the heading (h2).
  */
 function generate_graph () {
   d3.csv('numbers.csv').then(function (data) {
@@ -165,9 +167,7 @@ function generate_graph () {
         filtered_data.push(data[y])
       }
     }
-    console.log(max_value)
     const y_axis_limit = parseInt(max_value) + (10 - (max_value % 10))
-    console.log(selected_filters)
     if (max_value > 0) {
       chart = GroupedBarChart(filtered_data, {
         x: d => d.Year,
@@ -242,9 +242,8 @@ function generate_navigation (no_cards) {
   }
   if (articles_checked >= 481) {
     document.getElementById('load-more-button').remove()
-    const see_less = document.getElementById('see-less-button')
-    see_less.scrollIntoView({
-      behavior: 'auto',
+    const view_less = document.getElementById('see-less-button')
+    view_less.scrollIntoView({
       block: 'center',
       inline: 'center'
     })
@@ -257,14 +256,14 @@ function generate_navigation (no_cards) {
       document.getElementById('article-graph-divider').remove()
     }
 
-    see_less_button = document.createElement('button')
-    see_less_button.classList.add('w-25')
-    see_less_button.classList.add('btn')
-    see_less_button.classList.add('btn-lg')
-    see_less_button.classList.add('btn-primary')
-    see_less_button.id = 'see-less-button'
-    see_less_button.innerHTML = 'See Less'
-    document.getElementById('load-more').appendChild(see_less_button)
+    view_less_button = document.createElement('button')
+    view_less_button.classList.add('w-25')
+    view_less_button.classList.add('btn')
+    view_less_button.classList.add('btn-lg')
+    view_less_button.classList.add('btn-primary')
+    view_less_button.id = 'see-less-button'
+    view_less_button.innerHTML = 'View Less'
+    document.getElementById('load-more').appendChild(view_less_button)
 
     const see_less = document.getElementById('see-less-button')
     see_less.addEventListener('click', function () {
@@ -273,8 +272,12 @@ function generate_navigation (no_cards) {
       generate(selected_filters)
       const article_list = document.getElementById('articledescriptions')
       article_list.scrollIntoView()
-      document.getElementById('see-less-button').remove()
     })
+  }
+  if (no_cards &lt;= 9) {
+    if (document.getElementById('see-less-button')) {
+      document.getElementById('see-less-button').remove()
+    }
   }
   if (!document.getElementById('article-graph-divider')) {
     hr = document.createElement('hr')
@@ -585,7 +588,7 @@ function Legend (color, {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 02 2022 21:23:06 GMT+0000 (Greenwich Mean Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Dec 07 2022 11:25:33 GMT+0000 (Greenwich Mean Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -71,7 +71,7 @@ var selected_filters = []
 var filtered_data = []
 
 /**
- * Applies the inputted filters onto the cyber-operations-incidents.csv data set and calls generate_card() for each data item along with generate_navigation() and add_events_cards(). The local variable 'c' stores how many suitable cards have been generated for input as a parameter of generate_navigation()
+ * Applies the inputted filters onto the cyber-operations-incidents.csv data set (available at: https://www.kaggle.com/datasets/fireballbyedimyrnmom/cyber-incidents-up-to-2020) and calls generate_card() for each data item along with generate_navigation() and add_events_cards(). The local variable 'c' stores how many suitable cards have been generated for input as a parameter of generate_navigation()
  */
 function generate () {
   d3.csv('cyber-operations-incidents.csv').then(function (data) {
@@ -83,7 +83,7 @@ function generate () {
       if (selected_filters.includes(type) && (new Date(data[articles_checked].Date).getTime() > start_date.getTime()) && (new Date(data[articles_checked].Date).getTime() < end_date.getTime())) {
         generate_card(data[articles_checked], articles_checked)
         c = c + 1
-      } else if (selected_filters.includes('Other') && type === 0 && (new Date(data[articles_checked].Date).getTime() > start_date.getTime()) && (new Date(data[articles_checked].Date).getTime() < end_date.getTime())) {
+      } else if (selected_filters.includes('Other') && type === '' && (new Date(data[articles_checked].Date).getTime() > start_date.getTime()) && (new Date(data[articles_checked].Date).getTime() < end_date.getTime())) {
         generate_card(data[articles_checked], articles_checked)
         c = c + 1
       }
@@ -125,7 +125,7 @@ function reset (graph_refresh) {
 }
 
 /**
- * Uses the numbers.csv data set in order to create an instance of a grouped bar chart (svg) including: a calculation to round the largest data value up to the nearest 10 in order to set a y axis limit and applying the most recent chosen filters to the data. Also uses this data to create a legend (svg), both components are then added into the 'graph' div along with the heading (h2).
+ * Uses the numbers.csv data set (adapted from cyber-operations-incidents.csv) in order to create an instance of a grouped bar chart (svg) including: a calculation to round the largest data value up to the nearest 10 in order to set a y axis limit and applying the most recent chosen filters to the data. Also uses this data to create a legend (svg), both components are then added into the 'graph' div along with the heading (h2).
  */
 function generate_graph () {
   d3.csv('numbers.csv').then(function (data) {
@@ -139,9 +139,7 @@ function generate_graph () {
         filtered_data.push(data[y])
       }
     }
-    console.log(max_value)
     const y_axis_limit = parseInt(max_value) + (10 - (max_value % 10))
-    console.log(selected_filters)
     if (max_value > 0) {
       chart = GroupedBarChart(filtered_data, {
         x: d => d.Year,
@@ -218,7 +216,6 @@ function generate_navigation (no_cards) {
     document.getElementById('load-more-button').remove()
     const view_less = document.getElementById('see-less-button')
     view_less.scrollIntoView({
-      behavior: 'auto',
       block: 'center',
       inline: 'center'
     })
@@ -247,7 +244,6 @@ function generate_navigation (no_cards) {
       generate(selected_filters)
       const article_list = document.getElementById('articledescriptions')
       article_list.scrollIntoView()
-      document.getElementById('see-less-button').remove()
     })
   }
   if (no_cards <= 9) {
